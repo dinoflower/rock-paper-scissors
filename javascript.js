@@ -1,28 +1,23 @@
-// upon input (in console)
-// function computerPlay(){
-//     return Math.floor(Math.random()*3) + 1;
-// }
+// upon input (in console) playerSelection (not case sensitive)
 
 // return "rock" for 1, "paper" for 2, "scissors" for 3
+
 function computerPlay(){
     if (randomNumber() == 1) {
-    result = "rock";
+    computerSelection = "rock";
     } else if (randomNumber() == 2) {
-    result = "paper";
+    computerSelection = "paper";
     } else {
-    result = "scissors";
+    computerSelection = "scissors";
     }
-    return result;
+    return computerSelection;
 }
 function randomNumber(){
     return Math.floor(Math.random()*3) + 1;
 }
-//    if (result == 1){
-//    return "rock";
-// }
-// else-if (result == 2){
-//     return "paper";
-// }
-// else {
-//    return "scissors";
-// }
+
+// compare via playRound(playerSelection, computerSelection) return string announcing winner
+
+// can test playRound by setting const playerSelection = "choice";
+// and const computerSelection = computerPlay();
+// and running console.log(playRound(playerSelection, computerSelection));
