@@ -1,3 +1,6 @@
-// function computerPlay() randomly return rock paper or scissors
-// Math.random() to pick from among 3 numbers
-// Math.floor(Math.random() * 3) + 1;
+// upon input (in console)
+function computerPlay(){
+    return Math.floor(Math.random()*3) + 1;
+}
+
+// return "rock" for 1, "paper" for 2, "scissors" for 3
