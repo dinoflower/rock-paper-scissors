@@ -1,20 +1,27 @@
 // upon input (in console) playerSelection (not case sensitive)
 
-// return "rock" for 1, "paper" for 2, "scissors" for 3
+// a function computerPlay() that returns rock, paper, or scissors
 
-function computerPlay(){
-    if (randomNumber() == 1) {
-    computerSelection = "rock";
-    } else if (randomNumber() == 2) {
-    computerSelection = "paper";
-    } else {
-    computerSelection = "scissors";
-    }
-    return computerSelection;
-}
-function randomNumber(){
-    return Math.floor(Math.random()*3) + 1;
-}
+//function computerPlay(){
+//    if (randomNumber() == 1) {
+//    computerSelection = "rock";
+//    } else if (randomNumber() == 2) {
+//    computerSelection = "paper";
+//    } else {
+//    computerSelection = "scissors";
+//    }
+//    return computerSelection;
+//}
+
+//function randomNumber(){
+//    return Math.floor(Math.random()*3) + 1;
+//}
+
+const computerChoices = {1: "rock", 2: "paper", 3: "scissors"}
+
+//const computerChoices = ["rock", "paper", "scissors"];
+//let randomValue = Math.floor(Math.random() * computerChoices.length);
+//let computerSelection = computerChoices[randomValue];
 
 function playRound(playerSelection, computerSelection){
     if (playerSelection == "rock" && computerSelection == "rock") {
@@ -50,9 +57,20 @@ function playRound(playerSelection, computerSelection){
     return roundOutcome;
 }
 
+let playerSelection = "rock";
+console.log(playRound(playerSelection, computerSelection));
 
-
-// compare via playRound(playerSelection, computerSelection) return string announcing winner
+function game (){
+    for (let i = 0; i < 5; i++) {
+        playRound();
+        if (roundOutcome = "You win! Rock smashes scissors." || "You win! Paper covers rock." || "You win! Scissors cut paper.") {
+            playerScore += 1;
+        }
+        else if (roundOutcome = "You lose! Paper covers rock." || "You lose! Scissors cut paper." || "You lose! Rock smashes scissors.") {
+            computerScore += 1;
+        }
+    }
+ }
 
 // can test playRound by setting const playerSelection = "choice";
 // and const computerSelection = computerPlay();
