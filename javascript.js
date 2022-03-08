@@ -6,30 +6,39 @@ function computerPlay(){
     return computerChoices[Math.floor(Math.random() * computerChoices.length)];
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
 function playRound(playerSelection, computerSelection){
     if (playerSelection == "rock" && computerSelection == "rock") {
         roundOutcome = "It's a tie! Did you think rock was weak to rock?";
     }
     else if (playerSelection == "rock" && computerSelection == "paper") {
         roundOutcome = "You lose! Paper covers rock.";
+        computerScore += 1;
     }
     else if (playerSelection == "rock" && computerSelection == "scissors") {
         roundOutcome = "You win! Rock smashes scissors.";
+        playerScore += 1;
     }
     else if (playerSelection == "paper" && computerSelection == "rock") {
         roundOutcome = "You win! Paper covers rock.";
+        playerScore += 1;
     }
     else if (playerSelection == "paper" && computerSelection == "paper") {
         roundOutcome = "It's a tie! The papers harmlessly lie on a desk.";
     }
     else if (playerSelection == "paper" && computerSelection == "scissors") {
         roundOutcome = "You lose! Scissors cut paper.";
+        computerScore += 1;
     }
     else if (playerSelection == "scissors" && computerSelection == "rock") {
         roundOutcome = "You lose! Rock smashes scissors.";
+        computerScore += 1;
     }
     else if (playerSelection == "scissors" && computerSelection == "paper") {
         roundOutcome = "You win! Scissors cut paper.";
+        playerScore += 1;
     }
     else if (playerSelection == "scissors" && computerSelection == "scissors") {
         roundOutcome = "It's a tie! These scissors are evenly matched.";
@@ -41,24 +50,21 @@ function playRound(playerSelection, computerSelection){
 }
 
 // change these to just messages within function and create variables outside of function that keep track of points per round
-// or something
+// no it's fine - we're calling playRound() within game()
 // what is playRound() supposed to do, anyway?
 
 let playerSelection = "rock";
 let computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+let round = 0;
 
-function game (){
+function game(){
     for (let i = 0; i < 5; i++) {
-        playRound();
-        if (roundOutcome = "You win! Rock smashes scissors." || "You win! Paper covers rock." || "You win! Scissors cut paper.") {
-            playerScore += 1;
-        }
-        else if (roundOutcome = "You lose! Paper covers rock." || "You lose! Scissors cut paper." || "You lose! Rock smashes scissors.") {
-            computerScore += 1;
-        }
+        round = round += 1;
+        playRound(playerSelection, computerSelection);
+        console.log(roundOutcome);
+        console.log(round);
     }
- }
+}
 
 // can test playRound by setting const playerSelection = "choice";
 // and const computerSelection = computerPlay();
