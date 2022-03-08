@@ -40,6 +40,10 @@ function playRound(playerSelection, computerSelection){
     return roundOutcome;
 }
 
+// change these to just messages within function and create variables outside of function that keep track of points per round
+// or something
+// what is playRound() supposed to do, anyway?
+
 let playerSelection = "rock";
 let computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
