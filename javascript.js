@@ -1,27 +1,10 @@
 // upon input (in console) playerSelection (not case sensitive)
 
-// a function computerPlay() that returns rock, paper, or scissors
+const computerChoices = ["rock", "paper", "scissors"];
 
-//function computerPlay(){
-//    if (randomNumber() == 1) {
-//    computerSelection = "rock";
-//    } else if (randomNumber() == 2) {
-//    computerSelection = "paper";
-//    } else {
-//    computerSelection = "scissors";
-//    }
-//    return computerSelection;
-//}
-
-//function randomNumber(){
-//    return Math.floor(Math.random()*3) + 1;
-//}
-
-const computerChoices = {1: "rock", 2: "paper", 3: "scissors"}
-
-//const computerChoices = ["rock", "paper", "scissors"];
-//let randomValue = Math.floor(Math.random() * computerChoices.length);
-//let computerSelection = computerChoices[randomValue];
+function computerPlay(){
+    return computerChoices[Math.floor(Math.random() * computerChoices.length)];
+}
 
 function playRound(playerSelection, computerSelection){
     if (playerSelection == "rock" && computerSelection == "rock") {
@@ -58,6 +41,7 @@ function playRound(playerSelection, computerSelection){
 }
 
 let playerSelection = "rock";
+let computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
 
 function game (){
