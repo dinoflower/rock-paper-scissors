@@ -2,14 +2,25 @@
 
 const computerChoices = ["rock", "paper", "scissors"];
 
+function game(){
+    for (let i = 0; i < 5; i++) {
+        round = round += 1;
+        playRound(playerSelection, computerSelection);
+        console.log(roundOutcome);
+        console.log(round);
+    }
+}
+
 function computerPlay(){
     return computerChoices[Math.floor(Math.random() * computerChoices.length)];
 }
 
+// arrgghhh computerPlay() isn't called in playRound() so it chooses once and is done
+
 let playerScore = 0;
 let computerScore = 0;
 
-function playRound(playerSelection, computerSelection){
+function playRound(){
     if (playerSelection == "rock" && computerSelection == "rock") {
         roundOutcome = "It's a tie! Did you think rock was weak to rock?";
     }
@@ -56,15 +67,6 @@ function playRound(playerSelection, computerSelection){
 let playerSelection = "rock";
 let computerSelection = computerPlay();
 let round = 0;
-
-function game(){
-    for (let i = 0; i < 5; i++) {
-        round = round += 1;
-        playRound(playerSelection, computerSelection);
-        console.log(roundOutcome);
-        console.log(round);
-    }
-}
 
 // can test playRound by setting const playerSelection = "choice";
 // and const computerSelection = computerPlay();
