@@ -48,15 +48,10 @@ function playRound(playerSelection, computerSelection) {
 
 let playerScore = 0;
 let computerScore = 0;
+
 function game(){
     for (let i = 0; i < 5; i++) {
         playRound(playerSelection, computerSelection);
-        if (roundOutcome.playerScore = 1) {
-            console.log("That's a point for you!")
-        }
-        else if (roundOutcome.computerScore = 1) {
-            console.log("One point to the computer.")
-        }
         playerScore += roundOutcome.playerScore;
         computerScore += roundOutcome.computerScore;
         console.log(roundOutcome.text);
@@ -64,15 +59,15 @@ function game(){
     console.log(playerScore);
     console.log(computerScore);
     if (playerScore > computerScore) {
-        gameOutcome = "Game over. User wins."
+        let gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. User wins."
         return gameOutcome;
     }
     else if (computerScore > playerScore) {
-        gameOutcome = "Game over. Computer wins."
+        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. Computer wins."
         return gameOutcome;
     }
     else {
-        gameOutcome = "It appears to be a tie! Play again?"
+        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". It appears to be a tie! Play again?"
         return gameOutcome;
     }
 }
