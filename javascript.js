@@ -1,19 +1,16 @@
 // upon input (in console) playerSelection (not case sensitive)
 
-let playerSelection = "rock";
+//let playerSelection = playerinput.toLowerCase();
 
-const computerChoices = ["rock", "paper", "scissors"];
+let playerSelection = "rock";
 
 function computerPlay(array){
     let rand = Math.random()*array.length | 0;
-    let computerSelection = array[rand];
+    var computerSelection = array[rand];
     return computerSelection;
 }
-
+var computerChoices = ["rock", "paper", "scissors"];
 var computerSelection = computerPlay(computerChoices);
-
-let playerScore = 0;
-let computerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "rock") {
@@ -49,14 +46,36 @@ function playRound(playerSelection, computerSelection) {
     return roundOutcome;
 }
 
-//function game(){
-//    for (let i = 0; i < 5; i++) {
-//        round = round += 1;
-//        playRound(playerSelection, computerSelection);
-//        console.log(roundOutcome.text);
-//        console.log(round);
-//    }
-//}
+let playerScore = 0;
+let computerScore = 0;
+function game(){
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+        if (roundOutcome.playerScore = 1) {
+            console.log("That's a point for you!")
+        }
+        else if (roundOutcome.computerScore = 1) {
+            console.log("One point to the computer.")
+        }
+        playerScore += roundOutcome.playerScore;
+        computerScore += roundOutcome.computerScore;
+        console.log(roundOutcome.text);
+    }
+    console.log(playerScore);
+    console.log(computerScore);
+    if (playerScore > computerScore) {
+        gameOutcome = "Game over. User wins."
+        return gameOutcome;
+    }
+    else if (computerScore > playerScore) {
+        gameOutcome = "Game over. Computer wins."
+        return gameOutcome;
+    }
+    else {
+        gameOutcome = "It appears to be a tie! Play again?"
+        return gameOutcome;
+    }
+}
 
 let rockWin = {
     playerScore: 1,
@@ -111,11 +130,3 @@ let scissorsLoss = {
     computerScore: 1,
     text: "You lose! Rock smashes scissors."
 };
-
-// change these to just messages within function and create variables outside of function that keep track of points per round
-// no it's fine - we're calling playRound() within game()
-// what is playRound() supposed to do, anyway?
-
-// can test playRound by setting const playerSelection = "choice";
-// and const computerSelection = computerPlay();
-// and running console.log(playRound(playerSelection, computerSelection));
