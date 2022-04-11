@@ -2,60 +2,77 @@
 
 //let playerSelection = playerinput.toLowerCase();
 
-let playerSelection = "rock";
+const playerSelection = "rock";
 
 let playerScore = 0;
 let computerScore = 0;
 
+var computerChoices = ["rock", "paper", "scissors"];
+
 function computerPlay(array){
     let rand = Math.random()*array.length | 0;
-    var computerSelection = array[rand];
-    return computerSelection;
+    var comp = array[rand];
+    return comp;
 }
-var computerChoices = ["rock", "paper", "scissors"];
-//var computerSelection = computerPlay(computerChoices);
+var computerSelection = computerPlay(computerChoices);
+
+//original version of the function was var computerSelection = array[rand] and returned computerSelection - may need to roll back to that?
 
 function playRound(playerSelection, computerSelection) {
-    let computerSelection = computerPlay(computerChoices);
-    if (playerSelection == computerSelection) {
-        if (playerSelection == "rock") {
+//    computerSelection = computerPlay();
+    if (playerSelection === computerSelection) {
+        if (playerSelection === "rock") {
+            console.log(playerScore);
             return "It's a tie! Did you think rock was weak to rock?";
         }
-        else if (playerSelection == "paper") {
+        else if (playerSelection === "paper") {
+            console.log(playerScore);
             return "It's a tie! The papers harmlessly lie on a desk.";
         }
-        else {
+        else if (playerSelection === "scissors") {
+            console.log(playerScore);
             return "It's a tie! These scissors are evenly matched in skill.";
         }
+        else {
+            return "Is everything okay over there?"
+        }
     }
-    else if (playerSelection == "rock" && computerSelection == "paper") {
-        computerScore++;
+    else if (playerSelection === "rock" && computerSelection === "paper") {
+        computerScore += 1;
+        console.log(playerScore);
         return "You lose somehow! Paper covers rock.";
     }
-    else if (playerSelection == "rock" && computerSelection == "scissors") {
-        playerScore++;
+    else if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerScore += 1;
+        console.log(playerScore);
         return "You win! Rock smashes scissors. What a waste of office equipment!";
     }
-    else if (playerSelection == "paper" && computerSelection == "rock") {
-        playerScore++;
+    else if (playerSelection === "paper" && computerSelection === "rock") {
+        playerScore += 1;
+        console.log(playerScore);
         return "You win somehow! Paper covers rock.";
     }
-    else if (playerSelection == "paper" && computerSelection == "scissors") {
-        computerScore++;
+    else if (playerSelection === "paper" && computerSelection === "scissors") {
+        computerScore += 1;
+        console.log(playerScore);
         return "You lose! Scissors cut paper. What were you thinking?"
     }
-    else if (playerSelection == "scissors" && computerSelection == "rock") {
-        computerScore++;
+    else if (playerSelection === "scissors" && computerSelection === "rock") {
+        computerScore += 1;
+        console.log(playerScore);
         return "You lose! Rock smashes scissors. What a waste of office equipment!";
     }
-    else if (playerSelection == "scissors" && computerSelection == "paper") {
-        playerScore++;
+    else if (playerSelection === "scissors" && computerSelection === "paper") {
+        playerScore += 1;
+        console.log(playerScore);
         return "You lose! Scissors cut paper. What was the computer thinking?";
     }
     else {
         return "Please choose rock, paper, or scissors.";
     }
 }
+
+let gameOutcome;
 
 function game() {
     for (let i = 0; i < 5; i++) {
@@ -64,7 +81,7 @@ function game() {
     console.log(playerScore);
     console.log(computerScore);
     if (playerScore > computerScore) {
-        let gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. User wins."
+        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. User wins."
         return gameOutcome;
     }
     else if (computerScore > playerScore) {
@@ -76,3 +93,5 @@ function game() {
         return gameOutcome;
     }
 }
+
+// playerSelection and computerSelection both currently undefined, resulting in tied games with no score
