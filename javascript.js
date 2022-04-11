@@ -19,7 +19,7 @@ var computerSelection = computerPlay(computerChoices);
 //original version of the function was var computerSelection = array[rand] and returned computerSelection - may need to roll back to that?
 
 function playRound(playerSelection, computerSelection) {
-//    computerSelection = computerPlay();
+    computerSelection = computerPlay(computerChoices);
     if (playerSelection === computerSelection) {
         if (playerSelection === "rock") {
             console.log(playerScore);
