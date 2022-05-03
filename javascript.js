@@ -12,19 +12,14 @@ function computerPlay(array){
 }
 var computerSelection = computerPlay(computerChoices);
 
-let btn = document.querySelectorAll(".rock, .paper, .scissors")
-btn.forEach(function(button) {
-    if (button.class = ".rock") {
-        playerSelection = "rock";
-    }
-    else if (button.class = ".paper") {
-        playerSelection = "paper";
-    }
-    else {
-        playerSelection = "scissors";
-    }
-    button.addEventListener("click", () => { playRound(playerSelection, computerSelection); });
-});
+let rockButton = document.querySelector("#rock_Button");
+let paperButton = document.querySelector("#paper_Button");
+let scissorsButton = document.querySelector("#scissors_Button");
+
+rockButton.addEventListener("click", () => { playRound("rock", computerSelection) });
+paperButton.addEventListener("click", () => { playRound("paper", computerSelection) });
+scissorsButton.addEventListener("click", () => { playRound("scissors", computerSelection) });
+
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay(computerChoices);
