@@ -12,6 +12,20 @@ function computerPlay(array){
 }
 var computerSelection = computerPlay(computerChoices);
 
+let btn = document.querySelectorAll(".rock, .paper, .scissors")
+btn.forEach(function(button) {
+    if (button.class = ".rock") {
+        playerSelection = "rock";
+    }
+    else if (button.class = ".paper") {
+        playerSelection = "paper";
+    }
+    else {
+        playerSelection = "scissors";
+    }
+    button.addEventListener("click", () => { playRound(playerSelection, computerSelection); });
+});
+
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay(computerChoices);
     if (playerSelection === computerSelection) {
