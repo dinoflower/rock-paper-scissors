@@ -14,8 +14,6 @@ var computerSelection = computerPlay(computerChoices);
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay(computerChoices);
-    let playerInput = prompt("Rock, paper, or scissors?", "rock");
-    playerSelection = playerInput.toLowerCase();
     if (playerSelection === computerSelection) {
         if (playerSelection === "rock") {
             console.log("It's a tie! Did you think rock was weak to rock?");
@@ -71,20 +69,20 @@ function playRound(playerSelection, computerSelection) {
 
 let gameOutcome;
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound(playerSelection, computerSelection);
-    }
-    if (playerScore > computerScore) {
-        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. User wins."
-        return gameOutcome;
-    }
-    else if (computerScore > playerScore) {
-        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. Computer wins."
-        return gameOutcome;
-    }
-    else {
-        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". It appears to be a tie! Play again?"
-        return gameOutcome;
-    }
-}
+//function game() {
+//    for (let i = 0; i < 5; i++) {
+//        playRound(playerSelection, computerSelection);
+//    }
+//    if (playerScore > computerScore) {
+//        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. User wins."
+//        return gameOutcome;
+//    }
+//    else if (computerScore > playerScore) {
+//        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. Computer wins."
+//        return gameOutcome;
+//    }
+//    else {
+//        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". It appears to be a tie! Play again?"
+//        return gameOutcome;
+//    }
+//}

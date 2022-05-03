@@ -5,5 +5,26 @@
         <meta charset="UTF-8">
         <script src="javascript.js"></script>
     </head>
-    <body></body>
+    <body>
+        <h1>Rock, Paper, Scissors!</h1>
+            <h2>Hello, User! You've input the game "Rock, Paper, Scissors!"</h2>
+            <div class="outer container">
+                <p>Choose your play:</p>
+                <div class="button container">
+                    <button class="rock">Rock</button>
+                    <button class="paper">Paper</button>
+                    <button class="scissors">Scissors</button>
+                    <script>
+                        let btn = document.querySelectorAll(".rock, .paper, .scissors")
+                        btn.forEach(function(button) {
+                            button.addEventListener("click", () => { playRound(playerSelection, computerSelection); });
+                        });
+                    </script>
+                </div>
+                <div class="results"></div>
+            </div>
+    </body>
 </html>
+
+<!--getElementById-->
+<!--"Are you a good user or a bad user?"-->
