@@ -80,7 +80,6 @@ function playRound(playerSelection, computerSelection) {
                     endGame();
                 }
             }
-            console.log("It's a tie! Did you think rock was weak to rock?");
         }
         else if (playerSelection === "paper") {
             results.replaceChildren();
@@ -108,7 +107,6 @@ function playRound(playerSelection, computerSelection) {
                     endGame();
                 }
             }
-            console.log("It's a tie! The papers harmlessly lie on a desk.");
         }
         else if (playerSelection === "scissors") {
             results.replaceChildren();
@@ -136,7 +134,6 @@ function playRound(playerSelection, computerSelection) {
                     endGame();
                 }
             }
-            console.log("It's a tie! These scissors are evenly matched in skill.");
         }
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -166,7 +163,6 @@ function playRound(playerSelection, computerSelection) {
                 endGame();
             }
         }
-        console.log("You lose somehow! Paper covers rock.");
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore += 1;
@@ -195,7 +191,6 @@ function playRound(playerSelection, computerSelection) {
                 endGame();
             }
         }
-        console.log("You win! Rock smashes scissors. What a waste of office equipment!");
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore += 1;
@@ -224,7 +219,6 @@ function playRound(playerSelection, computerSelection) {
                 endGame();
             }
         }
-        console.log("You win somehow! Paper covers rock.");
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerScore += 1;
@@ -253,7 +247,6 @@ function playRound(playerSelection, computerSelection) {
                 endGame();
             }
         }
-        console.log("You lose! Scissors cut paper. What were you thinking?");
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerScore += 1;
@@ -282,7 +275,6 @@ function playRound(playerSelection, computerSelection) {
                 endGame();
             }
         }
-        console.log("You lose! Rock smashes scissors. What a waste of office equipment!");
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore += 1;
@@ -311,8 +303,5 @@ function playRound(playerSelection, computerSelection) {
                 endGame();
             }
         }
-        console.log("You win! Scissors cut paper. What was the computer thinking?");
     }
 }
-
-// wow a helper function just saved me ~150 lines
