@@ -21,115 +21,298 @@ paperButton.addEventListener("click", () => { playRound("paper", computerSelecti
 scissorsButton.addEventListener("click", () => { playRound("scissors", computerSelection) });
 
 let results = document.querySelector("#results_container");
-let text;
+let roundText;
+let scoreText;
+let gameText;
+let resetSection = document.querySelector("#reset_container");
+let resetButton;
+
+function endGame() {
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
+    createReset();
+};
+
+function createReset() {
+    resetButton = document.createElement("button");
+    resetButton.innerHTML = "Play Again?";
+    resetButton.addEventListener("click", () => { resetPage() });
+    resetSection.appendChild(resetButton);
+};
+
+function resetPage() {
+    rockButton.disabled = false;
+    paperButton.disabled = false;
+    scissorsButton.disabled = false;
+    results.replaceChildren();
+    playerScore = 0;
+    computerScore = 0;
+    resetSection.replaceChildren();
+};
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay(computerChoices);
     if (playerSelection === computerSelection) {
         if (playerSelection === "rock") {
             results.replaceChildren();
-            text = document.createElement('p');
-            text.textContent = "It's a tie! Did you think rock was weak to rock?";
-            results.appendChild(text);
+            roundText = document.createElement('p');
+            scoreText = document.createElement('p');
+            roundText.textContent = "It's a tie! Did you think rock was weak to rock?";
+            scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+            results.appendChild(roundText);
+            results.appendChild(scoreText);
+            if (playerScore === 5 || computerScore === 5) {
+                gameText = document.createElement('p');
+                if (playerScore > computerScore) {
+                    gameText.textContent = "Game over. User wins.";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+                else if (computerScore > playerScore) {
+                    gameText.textContent = "Game over. Computer wins.";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+                else {
+                    gameText.textContent = "Are you a good user or a bad user?";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+            }
             console.log("It's a tie! Did you think rock was weak to rock?");
-            return "It's a tie! Did you think rock was weak to rock?";
         }
         else if (playerSelection === "paper") {
             results.replaceChildren();
-            text = document.createElement('p');
-            text.textContent = "It's a tie! The papers harmlessly lie on a desk.";
-            results.appendChild(text);
+            roundText = document.createElement('p');
+            scoreText = document.createElement('p');
+            roundText.textContent = "It's a tie! The papers harmlessly lie on a desk.";
+            scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+            results.appendChild(roundText);
+            results.appendChild(scoreText);
+            if (playerScore === 5 || computerScore === 5) {
+                gameText = document.createElement('p');
+                if (playerScore > computerScore) {
+                    gameText.textContent = "Game over. User wins.";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+                else if (computerScore > playerScore) {
+                    gameText.textContent = "Game over. Computer wins.";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+                else {
+                    gameText.textContent = "Are you a good user or a bad user?";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+            }
             console.log("It's a tie! The papers harmlessly lie on a desk.");
-            return "It's a tie! The papers harmlessly lie on a desk.";
         }
         else if (playerSelection === "scissors") {
             results.replaceChildren();
-            text = document.createElement('p');
-            text.textContent = "It's a tie! These scissors are evenly matched in skill.";
-            results.appendChild(text);
+            roundText = document.createElement('p');
+            scoreText = document.createElement('p');
+            roundText.textContent = "It's a tie! These scissors are evenly matched in skill.";
+            scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+            results.appendChild(roundText);
+            results.appendChild(scoreText);
+            if (playerScore === 5 || computerScore === 5) {
+                gameText = document.createElement('p');
+                if (playerScore > computerScore) {
+                    gameText.textContent = "Game over. User wins.";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+                else if (computerScore > playerScore) {
+                    gameText.textContent = "Game over. Computer wins.";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+                else {
+                    gameText.textContent = "Are you a good user or a bad user?";
+                    results.appendChild(gameText);
+                    endGame();
+                }
+            }
             console.log("It's a tie! These scissors are evenly matched in skill.");
-            return "It's a tie! These scissors are evenly matched in skill.";
-        }
-        else {
-            return "Is everything okay over there?"
         }
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore += 1;
         results.replaceChildren();
-        text = document.createElement('p');
-        text.textContent = "You lose somehow! Paper covers rock.";
-        results.appendChild(text);
+        roundText = document.createElement('p');
+        scoreText = document.createElement('p');
+        roundText.textContent = "You lose somehow! Paper covers rock.";
+        scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+        results.appendChild(roundText);
+        results.appendChild(scoreText);
+        if (playerScore === 5 || computerScore === 5) {
+            gameText = document.createElement('p');
+            if (playerScore > computerScore) {
+                gameText.textContent = "Game over. User wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else if (computerScore > playerScore) {
+                gameText.textContent = "Game over. Computer wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else {
+                gameText.textContent = "Are you a good user or a bad user?";
+                results.appendChild(gameText);
+                endGame();
+            }
+        }
         console.log("You lose somehow! Paper covers rock.");
-        return "You lose somehow! Paper covers rock.";
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore += 1;
         results.replaceChildren();
-        text = document.createElement('p');
-        text.textContent = "You win! Rock smashes scissors. What a waste of office equipment!";
-        results.appendChild(text);
+        roundText = document.createElement('p');
+        scoreText = document.createElement('p');
+        roundText.textContent = "You win! Rock smashes scissors. What a waste of office equipment!";
+        scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+        results.appendChild(roundText);
+        results.appendChild(scoreText);
+        if (playerScore === 5 || computerScore === 5) {
+            gameText = document.createElement('p');
+            if (playerScore > computerScore) {
+                gameText.textContent = "Game over. User wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else if (computerScore > playerScore) {
+                gameText.textContent = "Game over. Computer wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else {
+                gameText.textContent = "Are you a good user or a bad user?";
+                results.appendChild(gameText);
+                endGame();
+            }
+        }
         console.log("You win! Rock smashes scissors. What a waste of office equipment!");
-        return "You win! Rock smashes scissors. What a waste of office equipment!";
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore += 1;
         results.replaceChildren();
-        text = document.createElement('p');
-        text.textContent = "You win somehow! Paper covers rock.";
-        results.appendChild(text);
+        roundText = document.createElement('p');
+        scoreText = document.createElement('p');
+        roundText.textContent = "You win somehow! Paper covers rock.";
+        scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+        results.appendChild(roundText);
+        results.appendChild(scoreText);
+        if (playerScore === 5 || computerScore === 5) {
+            gameText = document.createElement('p');
+            if (playerScore > computerScore) {
+                gameText.textContent = "Game over. User wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else if (computerScore > playerScore) {
+                gameText.textContent = "Game over. Computer wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else {
+                gameText.textContent = "Are you a good user or a bad user?";
+                results.appendChild(gameText);
+                endGame();
+            }
+        }
         console.log("You win somehow! Paper covers rock.");
-        return "You win somehow! Paper covers rock.";
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerScore += 1;
         results.replaceChildren();
-        text = document.createElement('p');
-        text.textContent = "You lose! Scissors cut paper. What were you thinking?";
-        results.appendChild(text);
+        roundText = document.createElement('p');
+        scoreText = document.createElement('p');
+        roundText.textContent = "You lose! Scissors cut paper. What were you thinking?";
+        scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+        results.appendChild(roundText);
+        results.appendChild(scoreText);
+        if (playerScore === 5 || computerScore === 5) {
+            gameText = document.createElement('p');
+            if (playerScore > computerScore) {
+                gameText.textContent = "Game over. User wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else if (computerScore > playerScore) {
+                gameText.textContent = "Game over. Computer wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else {
+                gameText.textContent = "Are you a good user or a bad user?";
+                results.appendChild(gameText);
+                endGame();
+            }
+        }
         console.log("You lose! Scissors cut paper. What were you thinking?");
-        return "You lose! Scissors cut paper. What were you thinking?";
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerScore += 1;
         results.replaceChildren();
-        text = document.createElement('p');
-        text.textContent = "You lose! Rock smashes scissors. What a waste of office equipment!";
-        results.appendChild(text);
+        roundText = document.createElement('p');
+        scoreText = document.createElement('p');
+        roundText.textContent = "You lose! Rock smashes scissors. What a waste of office equipment!";
+        scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+        results.appendChild(roundText);
+        results.appendChild(scoreText);
+        if (playerScore === 5 || computerScore === 5) {
+            gameText = document.createElement('p');
+            if (playerScore > computerScore) {
+                gameText.textContent = "Game over. User wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else if (computerScore > playerScore) {
+                gameText.textContent = "Game over. Computer wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else {
+                gameText.textContent = "Are you a good user or a bad user?";
+                results.appendChild(gameText);
+                endGame();
+            }
+        }
         console.log("You lose! Rock smashes scissors. What a waste of office equipment!");
-        return "You lose! Rock smashes scissors. What a waste of office equipment!";
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore += 1;
         results.replaceChildren();
-        text = document.createElement('p');
-        text.textContent = "You win! Scissors cut paper. What was the computer thinking?";
-        results.appendChild(text);
+        roundText = document.createElement('p');
+        scoreText = document.createElement('p');
+        roundText.textContent = "You win! Scissors cut paper. What was the computer thinking?";
+        scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
+        results.appendChild(roundText);
+        results.appendChild(scoreText);
+        if (playerScore === 5 || computerScore === 5) {
+            gameText = document.createElement('p');
+            if (playerScore > computerScore) {
+                gameText.textContent = "Game over. User wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else if (computerScore > playerScore) {
+                gameText.textContent = "Game over. Computer wins.";
+                results.appendChild(gameText);
+                endGame();
+            }
+            else {
+                gameText.textContent = "Are you a good user or a bad user?";
+                results.appendChild(gameText);
+                endGame();
+            }
+        }
         console.log("You win! Scissors cut paper. What was the computer thinking?");
-        return "You win! Scissors cut paper. What was the computer thinking?";
-    }
-    else {
-        console.log("Cheeky. Please choose rock, paper, or scissors.");
-        return "Cheeky. Please choose rock, paper, or scissors.";
     }
 }
 
-let gameOutcome;
-
-//function game() {
-//    for (let i = 0; i < 5; i++) {
-//        playRound(playerSelection, computerSelection);
-//    }
-//    if (playerScore > computerScore) {
-//        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. User wins."
-//        return gameOutcome;
-//    }
-//    else if (computerScore > playerScore) {
-//        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". Game over. Computer wins."
-//        return gameOutcome;
-//    }
-//    else {
-//        gameOutcome = "Player score: " + playerScore + ". Computer score : " + computerScore + ". It appears to be a tie! Play again?"
-//        return gameOutcome;
-//    }
-//}
+// wow a helper function just saved me ~150 lines
