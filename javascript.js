@@ -70,6 +70,9 @@ function resetPage() {
     rockButton.disabled = false;
     paperButton.disabled = false;
     scissorsButton.disabled = false;
+    rockButton.removeAttribute("class","disabled");
+    paperButton.removeAttribute("class","disabled");
+    scissorsButton.removeAttribute("class","disabled");
     results.replaceChildren();
     playerScore = 0;
     computerScore = 0;
