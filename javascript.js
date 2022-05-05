@@ -30,19 +30,19 @@ let resetButton;
 function getResults() {
     gameText = document.createElement('p');
     if (playerScore > computerScore) {
-        gameText.textContent = "Game over. User wins.";
+        gameText.textContent = "Game over. The User wins.";
         gameText.setAttribute("class", "final");
         results.appendChild(gameText);
         endGame();
     }
     else if (computerScore > playerScore) {
-        gameText.textContent = "Game over. Computer wins.";
+        gameText.textContent = "Game over.";
         gameText.setAttribute("class", "final");
         results.appendChild(gameText);
         endGame();
     }
     else {
-        gameText.textContent = "Are you a good user or a bad user?";
+        gameText.textContent = "Are you a good User or a bad User?";
         gameText.setAttribute("class", "final");
         results.appendChild(gameText);
         endGame();
