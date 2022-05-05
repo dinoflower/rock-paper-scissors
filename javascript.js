@@ -31,16 +31,19 @@ function getResults() {
     gameText = document.createElement('p');
     if (playerScore > computerScore) {
         gameText.textContent = "Game over. User wins.";
+        gameText.setAttribute("class", "final");
         results.appendChild(gameText);
         endGame();
     }
     else if (computerScore > playerScore) {
         gameText.textContent = "Game over. Computer wins.";
+        gameText.setAttribute("class", "final");
         results.appendChild(gameText);
         endGame();
     }
     else {
         gameText.textContent = "Are you a good user or a bad user?";
+        gameText.setAttribute("class", "final");
         results.appendChild(gameText);
         endGame();
     }
@@ -50,6 +53,9 @@ function endGame() {
     rockButton.disabled = true;
     paperButton.disabled = true;
     scissorsButton.disabled = true;
+    rockButton.setAttribute("class","disabled");
+    paperButton.setAttribute("class","disabled");
+    scissorsButton.setAttribute("class","disabled");
     createReset();
 };
 

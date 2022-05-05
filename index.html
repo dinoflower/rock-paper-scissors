@@ -4,20 +4,28 @@
         <title>Rock, Paper, Scissors</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Rock, Paper, Scissors</h1>
-            <h2>Hello, User! You've input the game "Rock, Paper, Scissors!"</h2>
-            <div class="outer container">
-                <p>Choose your move:</p>
-                <div class="button container">
-                    <button id="rock_Button">Rock</button>
-                    <button id="paper_Button">Paper</button>
-                    <button id="scissors_Button">Scissors</button>
+        <div class="header">
+            <h1 class="heading">Rock, Paper, Scissors</h1>
+        </div>
+        <div class="outer container">
+            <h2 class="greeting">Hello, User! You've input the game "Rock, Paper, Scissors!"</h2>
+                <div class="inner container">
+                    <p>Choose your move:</p>
+                    <div class="button container">
+                        <button id="rock_Button">ROCK</button>
+                        <button id="paper_Button">PAPER</button>
+                        <button id="scissors_Button">SCISSORS</button>
+                    </div>
+                    <div id="results_container"></div>
+                    <div id="reset_container"></div>
                 </div>
-                <div id="results_container"></div>
-                <div id="reset_container"></div>
-            </div>
+        </div>
+        <div class="footer">
+            <p class="secret">Warning! Incoming game!</p>
+        </div>
         <script src="javascript.js"></script>
     </body>
 </html>

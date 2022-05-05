@@ -1,0 +1,83 @@
+body {
+    font-family: 'Avant Garde', 'Franklin Gothic Medium', Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #EAEAEA;
+    color: #040F16;
+}
+
+.header,
+.footer {
+    background-color: #005E7C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    padding: 1em;
+}
+
+.footer {
+    color: #005E7C;
+}
+
+h1 {
+    color: #B8D4E3;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #796465;
+    font-size: 1.5em;
+    margin: .5em 0;
+}
+
+p {
+    font-size: 1em;
+}
+
+.outer {
+    max-width: 55%;
+    padding: 2em;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+button {
+    background-color: #005E7C;
+    border: none;
+    font-family: 'Avant Garde', 'Franklin Gothic Medium', Arial, sans-serif;
+    color: #EAEAEA;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin: .5em 0;
+}
+
+.disabled {
+    background-color: #B8D4E3;
+    border: none;
+    font-family: 'Avant Garde', 'Franklin Gothic Medium', Arial, sans-serif;
+    color: #EAEAEA;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin: .5em 0;
+}
+
+.final {
+    color: #040F16;
+    font-weight: 700;
+    font-size: 1em;
+}
+
+
+/* Prussian Blue #1C3144, Columbia Blue #B8D4E3, Nyanza #EEFFDB, Mountbatten Pink #946E83, Deep Saffron #F19A3E */
+/* Rich Black #040F16, Blue Sapphire #005E7C, Platinum #EAEAEA, Columbia Blue #B8D4E3, Deep Taupe #796465
