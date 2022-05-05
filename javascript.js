@@ -27,6 +27,25 @@ let gameText;
 let resetSection = document.querySelector("#reset_container");
 let resetButton;
 
+function getResults() {
+    gameText = document.createElement('p');
+    if (playerScore > computerScore) {
+        gameText.textContent = "Game over. User wins.";
+        results.appendChild(gameText);
+        endGame();
+    }
+    else if (computerScore > playerScore) {
+        gameText.textContent = "Game over. Computer wins.";
+        results.appendChild(gameText);
+        endGame();
+    }
+    else {
+        gameText.textContent = "Are you a good user or a bad user?";
+        results.appendChild(gameText);
+        endGame();
+    }
+};
+
 function endGame() {
     rockButton.disabled = true;
     paperButton.disabled = true;
@@ -63,22 +82,7 @@ function playRound(playerSelection, computerSelection) {
             results.appendChild(roundText);
             results.appendChild(scoreText);
             if (playerScore === 5 || computerScore === 5) {
-                gameText = document.createElement('p');
-                if (playerScore > computerScore) {
-                    gameText.textContent = "Game over. User wins.";
-                    results.appendChild(gameText);
-                    endGame();
-                }
-                else if (computerScore > playerScore) {
-                    gameText.textContent = "Game over. Computer wins.";
-                    results.appendChild(gameText);
-                    endGame();
-                }
-                else {
-                    gameText.textContent = "Are you a good user or a bad user?";
-                    results.appendChild(gameText);
-                    endGame();
-                }
+                getResults();
             }
         }
         else if (playerSelection === "paper") {
@@ -90,22 +94,7 @@ function playRound(playerSelection, computerSelection) {
             results.appendChild(roundText);
             results.appendChild(scoreText);
             if (playerScore === 5 || computerScore === 5) {
-                gameText = document.createElement('p');
-                if (playerScore > computerScore) {
-                    gameText.textContent = "Game over. User wins.";
-                    results.appendChild(gameText);
-                    endGame();
-                }
-                else if (computerScore > playerScore) {
-                    gameText.textContent = "Game over. Computer wins.";
-                    results.appendChild(gameText);
-                    endGame();
-                }
-                else {
-                    gameText.textContent = "Are you a good user or a bad user?";
-                    results.appendChild(gameText);
-                    endGame();
-                }
+                getResults();
             }
         }
         else if (playerSelection === "scissors") {
@@ -117,22 +106,7 @@ function playRound(playerSelection, computerSelection) {
             results.appendChild(roundText);
             results.appendChild(scoreText);
             if (playerScore === 5 || computerScore === 5) {
-                gameText = document.createElement('p');
-                if (playerScore > computerScore) {
-                    gameText.textContent = "Game over. User wins.";
-                    results.appendChild(gameText);
-                    endGame();
-                }
-                else if (computerScore > playerScore) {
-                    gameText.textContent = "Game over. Computer wins.";
-                    results.appendChild(gameText);
-                    endGame();
-                }
-                else {
-                    gameText.textContent = "Are you a good user or a bad user?";
-                    results.appendChild(gameText);
-                    endGame();
-                }
+                getResults();
             }
         }
     }
@@ -141,27 +115,12 @@ function playRound(playerSelection, computerSelection) {
         results.replaceChildren();
         roundText = document.createElement('p');
         scoreText = document.createElement('p');
-        roundText.textContent = "You lose somehow! Paper covers rock.";
+        roundText.textContent = "You lose somehow! Paper covers rock, and the rock thinks it's nighttime.";
         scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
         results.appendChild(roundText);
         results.appendChild(scoreText);
         if (playerScore === 5 || computerScore === 5) {
-            gameText = document.createElement('p');
-            if (playerScore > computerScore) {
-                gameText.textContent = "Game over. User wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else if (computerScore > playerScore) {
-                gameText.textContent = "Game over. Computer wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else {
-                gameText.textContent = "Are you a good user or a bad user?";
-                results.appendChild(gameText);
-                endGame();
-            }
+            getResults();
         }
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -174,22 +133,7 @@ function playRound(playerSelection, computerSelection) {
         results.appendChild(roundText);
         results.appendChild(scoreText);
         if (playerScore === 5 || computerScore === 5) {
-            gameText = document.createElement('p');
-            if (playerScore > computerScore) {
-                gameText.textContent = "Game over. User wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else if (computerScore > playerScore) {
-                gameText.textContent = "Game over. Computer wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else {
-                gameText.textContent = "Are you a good user or a bad user?";
-                results.appendChild(gameText);
-                endGame();
-            }
+            getResults();
         }
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
@@ -197,27 +141,12 @@ function playRound(playerSelection, computerSelection) {
         results.replaceChildren();
         roundText = document.createElement('p');
         scoreText = document.createElement('p');
-        roundText.textContent = "You win somehow! Paper covers rock.";
+        roundText.textContent = "You win somehow! Paper covers rock, and the rock thinks it's nighttime.";
         scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
         results.appendChild(roundText);
         results.appendChild(scoreText);
         if (playerScore === 5 || computerScore === 5) {
-            gameText = document.createElement('p');
-            if (playerScore > computerScore) {
-                gameText.textContent = "Game over. User wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else if (computerScore > playerScore) {
-                gameText.textContent = "Game over. Computer wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else {
-                gameText.textContent = "Are you a good user or a bad user?";
-                results.appendChild(gameText);
-                endGame();
-            }
+            getResults();
         }
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
@@ -225,27 +154,12 @@ function playRound(playerSelection, computerSelection) {
         results.replaceChildren();
         roundText = document.createElement('p');
         scoreText = document.createElement('p');
-        roundText.textContent = "You lose! Scissors cut paper. What were you thinking?";
+        roundText.textContent = "You lose! Scissors cut paper. What were you thinking, bringing paper to a scissors fight?";
         scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
         results.appendChild(roundText);
         results.appendChild(scoreText);
         if (playerScore === 5 || computerScore === 5) {
-            gameText = document.createElement('p');
-            if (playerScore > computerScore) {
-                gameText.textContent = "Game over. User wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else if (computerScore > playerScore) {
-                gameText.textContent = "Game over. Computer wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else {
-                gameText.textContent = "Are you a good user or a bad user?";
-                results.appendChild(gameText);
-                endGame();
-            }
+            getResults();
         }
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
@@ -258,22 +172,7 @@ function playRound(playerSelection, computerSelection) {
         results.appendChild(roundText);
         results.appendChild(scoreText);
         if (playerScore === 5 || computerScore === 5) {
-            gameText = document.createElement('p');
-            if (playerScore > computerScore) {
-                gameText.textContent = "Game over. User wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else if (computerScore > playerScore) {
-                gameText.textContent = "Game over. Computer wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else {
-                gameText.textContent = "Are you a good user or a bad user?";
-                results.appendChild(gameText);
-                endGame();
-            }
+            getResults();
         }
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
@@ -281,27 +180,12 @@ function playRound(playerSelection, computerSelection) {
         results.replaceChildren();
         roundText = document.createElement('p');
         scoreText = document.createElement('p');
-        roundText.textContent = "You win! Scissors cut paper. What was the computer thinking?";
+        roundText.textContent = "You win! Scissors cut paper. What was the computer thinking, bringing paper to a scissors fight?";
         scoreText.textContent = `Your score: ${playerScore} Computer score: ${computerScore}`;
         results.appendChild(roundText);
         results.appendChild(scoreText);
         if (playerScore === 5 || computerScore === 5) {
-            gameText = document.createElement('p');
-            if (playerScore > computerScore) {
-                gameText.textContent = "Game over. User wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else if (computerScore > playerScore) {
-                gameText.textContent = "Game over. Computer wins.";
-                results.appendChild(gameText);
-                endGame();
-            }
-            else {
-                gameText.textContent = "Are you a good user or a bad user?";
-                results.appendChild(gameText);
-                endGame();
-            }
+            getResults();
         }
     }
 }
